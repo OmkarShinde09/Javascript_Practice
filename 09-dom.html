@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM</title>
+  </head>
+  <body>
+    <button>Hello</button>
+    <button class="js-button">Second button</button>
+
+    <script>
+        //DOM is basically another built in object. The document object models/represents the webpage.
+        /*console.log(document.title);
+
+        console.log(document.body);//This shows us that we can have HTML in Javascript. Thus the DOM combines JS and HTML. The HTML is converted to JS object.
+        console.log(typeof document.body);
+        
+        console.log(document.body.innerHTML);
+        document.body.innerHTML = '<button>Good Job!</button>';
+        */
+
+        console.log(document.querySelector('button'));//This takes any element from the page and puts it in JS. Every HTML element has a property innerHTML.
+        console.log(document.querySelector('button').innerHTML);
+        document.querySelector('button').innerHTML = 'Changed';
+
+        const buttonElement = document.querySelector('.js-button');//This selects and element with a class js-button.
+        console.log(buttonElement);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Projects</title>
+  </head>
+  <body>
+    <p>YouTube Subscribe Button</p>
+    <button onclick="subscribe();" class="js-subscribe-button">Subscribe</button>
+
+    <p>Amazon Shipping Calculator</p>
+    <input placeholder="Cost of order" class="js-cost-input" onkeydown="handleCostKeydown(event);">
+    <button onclick="calculateTotal()">Calculate</button>
+    <p class="js-total-cost"></p>
+
+    <script>
+        String(25)
+        console.log('25' - 5);//String will convert to number if -, *, / operations.(Type coercion). Hence don't do math using string.
+        console.log('25' + 5);
+
+        window.document
+        window.console.log('window');//Window refers to the browser. It is taken by default.
+        window.alert
+
+        //Clicks and keydowns are known as events and onclick, onkeydown are event listners. Every event listner also gets an event object.
+        function handleCostKeydown(event){
+            if(event.key === 'Enter'){
+                calculateTotal();
+            }
+        }
+
+        function calculateTotal(){
+            const inputElement = document.querySelector('.js-cost-input');
+            let cost = Number(inputElement.value);//This gets the value inside the input box. Only inputElement.value returns string so we have used Number to typecast it into number. Whenever we get a value from a DOM it is a string.
+            if(cost < 40){
+                cost = cost + 10;
+            }
+
+            document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+        }
+    
+        function subscribe() {
+            const buttonElement = document.querySelector('.js-subscribe-button');
+            
+            if(buttonElement.innerText === 'Subscribe') {
+            buttonElement.innerText = 'Subscribed';
+            }
+            else {
+            buttonElement.innerText = 'Subscribe';
+            }//innerText property is innerHTML but gives the text without spaces.
+        }
+    </script>
+  </body>
+</html>

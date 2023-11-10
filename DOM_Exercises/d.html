@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9d</title>
+</head>
+<body>
+    <input placeholder="Your name" class="js-name" onkeydown="handleclosing(event);">
+    <button onclick="display();">Submit</button>
+    <p class="js-display"></p>
+</body>
+<script>
+    function handleclosing(event){
+        if(event.key === 'Enter'){
+            display();
+        }
+    }
+
+    function display(){
+        let val = document.querySelector('.js-name');
+        let name = val.value;
+        document.querySelector('.js-display').innerHTML = `Your name is: ${name}`;
+    }
+</script>
+</html>
