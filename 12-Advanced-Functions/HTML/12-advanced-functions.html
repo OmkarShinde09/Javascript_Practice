@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced functions</title>
+</head>
+<body>
+<script>
+   /*
+   function greeting(){
+        console.log('hello');
+    }
+    greeting();//This is called calling a function
+
+    const num = 2;//num variable is a value
+    const function1 = function greeting(){
+        console.log('hello2');
+    };
+
+    // //This is an anonymous function. The natural way in which we write function is a shortcut. It is 1. Easier to read. 2. Hoisting : We can call a function before it is declared in a code.
+    // const function1 = function(){
+    //     console.log('hello2');
+    // };
+
+
+    console.log(function1);
+    console.log(typeof function1);//We see that function is just another type of a
+
+    const object1 = {
+        num : 2,
+        fun : function(){
+            console.log('hello3');
+        }
+    };
+    object1.fun();
+
+    function display(param){
+        console.log(param);
+    }
+    display(2);
+
+
+    function run(param){
+        param();
+    }
+    run(function(){
+            console.log('hello4');
+        }
+    );//Passing a function as parameter in another function. Passed function is called callback function.
+    */
+
+   setTimeout(function(){
+    console.log('timeout');
+   }, 3000);//This is an inbuilt function which has two parameters. In this example the function is called after 3 seconds.
+
+   console.log('next line');//This gets printed before setTimeout function because it has a starting time of 3seconds. This is called Asynchronous Code wherein the computer won't wait for one line to finish if it has a timer. It will just start the timer. Till now we have used Synchronous code.
+
+   setInterval(function(){
+    console.log('interval')
+   }, 3000);//This will run the function every 3 seconds.
+
+
+   [
+    'make dinner',
+    'wash dishes', 
+    'watch youtube'
+   ].forEach(function(value, index){
+    if(value === 'wash dishes'){
+        return;
+    }
+    console.log(index);
+    console.log(value);
+   });//This method allows us to loop through the array. It is actually the preferred method to loop through the array because it is easier to read.
+</script>
+</body>
+</html>
