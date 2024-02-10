@@ -16,7 +16,7 @@ cart.forEach((cartItem) => {
     });//This is an example of de-duplicating or normalizing the data where we have matched the cart product in cart.js with list of products in products.js
 
     cartSummaryHTML += `
-        <div class="cart-item-container">
+        <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
             <div class="delivery-date">
                 Delivery date: Tuesday, June 21
             </div>
@@ -103,5 +103,8 @@ document.querySelectorAll('.js-delete-link')
         link.addEventListener('click', () => {
             const productID = link.dataset.productId;
             removeFromCart(productID);
+
+            const container = document.querySelector(`.js-cart-item-container-${productID}`);
+            container.remove();
         });
     });//This function is just to remove the product from the cart when Delete is clicked. This does not change the HTML of the page. It uses removeFromCart function from cart.js
