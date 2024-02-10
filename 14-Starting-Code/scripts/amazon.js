@@ -1,3 +1,6 @@
+import {cart, addToCart} from '../data/cart.js';//Put all imports at top  of the file. We need to use live server because modules don't work when you open the .html file.
+import { products} from '../data/products.js';
+
 let productsHTML = '';
 
 products.forEach((product) => {
@@ -56,35 +59,42 @@ products.forEach((product) => {
 
 document.querySelector('.js-products-grid').innerHTML = productsHTML;
 
+//Best practice is to put the function related to a specific entity in its separate file so you might find addToCart() in  carts.js.
+// function addToCart(productId){
+//   let matchingItem;
+
+//   cart.forEach((cartItem) => {
+//     if (productId === cartItem.productId) {
+//       matchingItem = cartItem;
+//     }
+//   });
+
+//   if (matchingItem) {
+//     matchingItem.quantity += 1;
+//   } else {
+//     cart.push({
+//       productId: productId,
+//       quantity: 1
+//     });
+//   }
+// }
+
+function updateCartQuantity(){
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+
+  document.querySelector('.js-cart-quantity')
+    .innerHTML = cartQuantity;
+}
+
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
     button.addEventListener('click', () => {
       const productId = button.dataset.productId;
-
-      let matchingItem;
-
-      cart.forEach((item) => {
-        if (productId === item.productId) {
-          matchingItem = item;
-        }
-      });
-
-      if (matchingItem) {
-        matchingItem.quantity += 1;
-      } else {
-        cart.push({
-          productId: productId,
-          quantity: 1
-        });
-      }
-
-      let cartQuantity = 0;
-
-      cart.forEach((item) => {
-        cartQuantity += item.quantity;
-      });
-
-      document.querySelector('.js-cart-quantity')
-        .innerHTML = cartQuantity;
+      addToCart(productId); 
+      updateCartQuantity();
     });
   });

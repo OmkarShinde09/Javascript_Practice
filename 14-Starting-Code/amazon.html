@@ -56,8 +56,12 @@
       </div>
     </div>
 
-    <script src="data/cart.js"></script>
-    <script src="data/products.js"></script>
-    <script src="scripts/amazon.js"></script>
+    <script type="module" src="scripts/amazon.js"></script>
+    <!-- Using multiple .js files can cause naming conflicts. Hence we use modules. Modules help to restrict the scope of names in a particular js file. How we create a module is that we create a file and don't load the file using script tag. With modules we don't have worry about the order of the files in script -->
+
+    <!-- Get a variable out of a file:
+    1.Add type = "module" attribute
+    2.Export
+    3.Import -->
   </body>
 </html>
