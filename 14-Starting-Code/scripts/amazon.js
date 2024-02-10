@@ -1,5 +1,6 @@
 import {cart, addToCart} from '../data/cart.js';//Put all imports at top  of the file. We need to use live server because modules don't work when you open the .html file.
 import { products} from '../data/products.js';
+import { formatCurrency } from './utils/money.js';
 
 let productsHTML = '';
 
@@ -24,7 +25,7 @@ products.forEach((product) => {
       </div>
 
       <div class="product-price">
-        $${(product.priceCents / 100).toFixed(2)}
+        $${formatCurrency(product.priceCents)}
       </div>
 
       <div class="product-quantity-container">
